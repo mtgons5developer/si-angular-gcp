@@ -1,28 +1,31 @@
-// app.module.ts
-
-import { BrowserModule } from '@angular/platform-browser';
+//app.module.ts
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-
-import { ApiService } from './services/api.service';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/prod/environment.prod';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
+
+const firebaseConfig = environment.firebaseConfig;
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    // ... any other components
-  ],
+  declarations: [],
   imports: [
-    BrowserModule,
-    HttpClientModule // Import HttpClientModule to make HTTP requests
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule    
+    BrowserModule, 
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    CommonModule,
+    FormsModule,
   ],
-  providers: [
-    ApiService // Provide your service here
-  ],
-  bootstrap: [AppComponent]
+  exports: [],
+  providers: [],
+  bootstrap: [],
 })
-export class AppModule { }
+export class AppModule {}
+// export class SignupModule { }
