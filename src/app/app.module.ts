@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ApiService } from './services/api.service';
 import { AppComponent } from './app.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     HttpClientModule // Import HttpClientModule to make HTTP requests
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule    
   ],
   providers: [
     ApiService // Provide your service here

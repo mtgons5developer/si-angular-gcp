@@ -3,13 +3,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/prod/environment.prod';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'https://us-central1-sonorous-summer-415805.cloudfunctions.net';
-  
+
+  private baseUrl = environment.apiUrl;
+
   constructor(private http: HttpClient) { }
 
   helloWorld(name: string): Observable<any> {
