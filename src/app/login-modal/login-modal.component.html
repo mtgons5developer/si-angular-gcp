@@ -1,0 +1,38 @@
+
+<!-- <div class="modal" [ngClass]="{'hidden' : !showModal}"> -->
+<div class="modal" [ngClass]="{'slide-in': showModal, 'slide-out': !showModal, 'hidden' : !showModal}">
+
+  <div class="modal-content">
+    <!-- Tab Headers -->
+    <div class="tabs">
+      <button (click)="currentTab = 'password'" [ngClass]="{'active': currentTab === 'password'}">Password</button>
+      <button (click)="currentTab = 'phone'" [ngClass]="{'active': currentTab === 'phone'}">Phone Number</button>
+      <button class="close-button" (click)="close()">&times;</button>      
+    </div>
+
+  <!-- Password Tab Content -->
+  <div class="tab-content" *ngIf="currentTab === 'password'">
+    <input type="email" class="input-field" placeholder="Enter your email" [(ngModel)]="loginData.email">
+    <input type="password" class="input-field" placeholder="Enter your password" [(ngModel)]="loginData.password">
+    <button class="input-field-button login-btn" (click)="login()">LOGIN</button>
+    <!-- Rest of the content -->
+  </div>
+
+    <!-- Phone Number Tab Content -->
+    <div class="tab-content" *ngIf="currentTab === 'phone'">
+      <input type="tel" class="input-field" placeholder="ex. 919 123 1234" [(ngModel)]="phoneData.number">
+      <button class="button-field send-sms-btn">Send code via SMS</button>
+      <button class="button-field send-whatsapp-btn">Send code via Whatsapp</button>
+    </div>
+
+  <!-- Additional contents -->
+  <div class="additional-contents">
+    <p class="account-prompt">Don't have an account? <a href="#" class="sign-up">Sign up</a></p>
+    <p>Or, login with</p>
+    <div class="google-button-container">
+      <button class="google-btn">Google</button>
+    </div>
+  </div>
+
+</div>
+

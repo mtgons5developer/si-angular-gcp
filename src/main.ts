@@ -1,17 +1,17 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-// import { AppComponent } from './app/app.component';
-import { AppModule } from './app/app.module';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { environment } from '../src/environments/prod/environment.prod';
+// main.ts
 import { enableProdMode } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { environment } from '../src/environments/prod/environment.prod';
+import { HttpClientModule } from '@angular/common/http';
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
-
-// bootstrapApplication(AppComponent, appConfig)
-//   .catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    HttpClientModule,
+    // ... any other global providers
+  ]
+}).catch(err => console.error(err));

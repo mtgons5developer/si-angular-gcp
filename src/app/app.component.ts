@@ -1,15 +1,23 @@
-//app.component.ts
-
+// app.component.ts
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { LoginModalComponent } from './login-modal/login-modal.component'; // Import the LoginModalComponent
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [LoginModalComponent], // Import the LoginModalComponent here
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-gcp';
+  isLoginModalOpen: boolean = false;
+
+  openLoginModal(): void {
+    this.isLoginModalOpen = true;
+  }
+
+  closeLoginModal(): void {
+    console.log('closeLoginModal called'); // Check if this logs when close emits
+    this.isLoginModalOpen = false; // This should hide the modal
+  }
 }

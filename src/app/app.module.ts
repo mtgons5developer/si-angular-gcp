@@ -1,14 +1,15 @@
 //app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/prod/environment.prod';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms';
+import { LoginModalComponent } from './login-modal/login-modal.component';
+import { AppComponent } from './app.component';
 
 const firebaseConfig = environment.firebaseConfig;
 
@@ -16,6 +17,8 @@ const firebaseConfig = environment.firebaseConfig;
   declarations: [],
   imports: [
     BrowserModule, 
+    LoginModalComponent,
+    AppComponent,    
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
