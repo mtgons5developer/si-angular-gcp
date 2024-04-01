@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ApplicantsModalComponent } from './applicants-modal.component';
+import { CaptchaModalComponent } from './captcha-modal.component';
 
-describe('ApplicantsModalComponent', () => {
-  let component: ApplicantsModalComponent;
-  let fixture: ComponentFixture<ApplicantsModalComponent>;
+describe('CaptchaModalComponent', () => {
+  let component: CaptchaModalComponent;
+  let fixture: ComponentFixture<CaptchaModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ApplicantsModalComponent]
+      imports: [CaptchaModalComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ApplicantsModalComponent);
+    fixture = TestBed.createComponent(CaptchaModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

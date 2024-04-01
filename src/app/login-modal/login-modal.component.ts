@@ -2,6 +2,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Import CommonModule for ngClass and other directives
 import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { AngularFireAuth } from "@angular/fire/compat/auth";
+import firebase from 'firebase/compat/app';
 
 @Component({
   selector: 'app-login-modal',
@@ -14,6 +16,7 @@ export class LoginModalComponent {
   
   @Input() showModal: boolean | undefined;
   @Output() onClose = new EventEmitter<void>();
+  @Output() onGoogleLogin = new EventEmitter<void>();
 
   currentTab: 'password' | 'phone' = 'password';
   loginData = {
@@ -24,6 +27,19 @@ export class LoginModalComponent {
     number: ''
   };
 
+  // constructor(public afAuth: AngularFireAuth) {}
+
+  // async signInWithGoogle() {
+  //   const credentials = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  //   // Handle the credentials
+  //   this.close();
+  // }
+
+  // Call this method when the Google button is clicked
+  googleLogin(): void {
+    this.onGoogleLogin.emit();
+  }  
+  
   // Call this method to close the modal
   close(): void {
     console.log('close called'); // Check if this logs when you click the close button

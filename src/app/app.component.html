@@ -1,7 +1,13 @@
 <!-- app.component.html -->
 <button (click)="openLoginModal()">Login</button>
 
-<app-login-modal 
-  [showModal]="isLoginModalOpen" 
-  (onClose)="closeLoginModal()">
+<app-login-modal
+  [showModal]="isLoginModalOpen"
+  (onClose)="closeLoginModal()"
+  (onGoogleLogin)="openGoogleLoginModal()">
 </app-login-modal>
+
+<app-google-login-modal
+  *ngIf="isGoogleLoginModalOpen"
+  (onClose)="closeGoogleLoginModal()">
+</app-google-login-modal>

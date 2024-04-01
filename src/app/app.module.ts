@@ -1,4 +1,5 @@
 //app.module.ts
+//NonStandaloneComponent
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from "@angular/fire/compat";
@@ -27,7 +28,6 @@ const firebaseConfig = environment.firebaseConfig;
     FormsModule,
   ],
   exports: [],
-  providers: [],
   bootstrap: [],
 })
 export class AppModule {}

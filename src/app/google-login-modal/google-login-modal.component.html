@@ -1,0 +1,16 @@
+<!-- google-login-modal.component.html -->
+<div class="google-login-modal" *ngIf="showModal">
+  <div class="google-login-modal-content">
+    <div class="modal-header">
+      <span class="close-button" (click)="closeModal()">&times;</span>
+      <h2>Google Login</h2>
+    </div>
+    <div class="modal-body">
+      <p>To continue, log in with your Google account.</p>
+      <button class="google-login-button" (click)="signInWithGoogle()">
+        <img src="assets/google-logo.png" alt="Google Logo">
+        Sign in with Google
+      </button>
+    </div>
+  </div>
+</div>
