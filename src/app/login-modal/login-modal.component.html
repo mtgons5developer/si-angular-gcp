@@ -34,9 +34,9 @@
 
     <!-- Phone Number Tab Content -->
     <div class="tab-content" *ngIf="currentTab === 'phone'">
-      <input type="tel" class="input-field" placeholder="ex. 919 123 1234" [(ngModel)]="phoneData.number">
-      <button class="button-field send-sms-btn">Send code via SMS</button>
-      <button class="button-field send-whatsapp-btn">Send code via Whatsapp</button>
+      <input type="tel" class="input-field" placeholder="ex. +63 919 123 1234" [(ngModel)]="phoneData.number">
+      <button class="button-field send-sms-btn" (click)="sendCodeViaSMS()">Send code via SMS</button>
+      <button class="button-field send-whatsapp-btn" (click)="sendCodeViaWhatsApp()">Send code via Whatsapp</button>
       <!-- Additional contents -->
       <div class="additional-contents">
         <p class="account-prompt">Don't have an account? Sign up</p>
