@@ -1,4 +1,27 @@
 /* google-login-modal.component.css */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px); /* Move modal upwards */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Reset modal position */
+  }
+}
+
+/* Define keyframes for slide-out animation */
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0); /* Reset modal position */
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50px); /* Move modal upwards */
+  }
+}
+
 .google-login-modal {
     display: flex;
     align-items: center;
@@ -11,15 +34,36 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
+    animation-duration: 0.3s;
+    animation-fill-mode: both;    
   }
   
+
+/* Apply slide-in animation when showModal is true */
+.slide-in {
+  animation-name: slideIn;
+}
+
+/* Apply slide-out animation when showModal is false */
+.slide-out {
+  animation-name: slideOut;
+}
+
+/* Hide modal when showModal is false */
+.hidden {
+  display: none;
+}
+
+.google-button-container svg {
+  width: 22px;
+}
+
   .google-login-modal-content {
-    background-color: #fefefe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
     margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    border-radius: 5px;
   }
   
   .close-button {
@@ -51,8 +95,8 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
   
-  .google-login-button img {
+  /* .google-login-button img {
     margin-right: 10px;
     vertical-align: middle;
-  }
+  } */
   

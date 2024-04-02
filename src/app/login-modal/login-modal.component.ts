@@ -32,7 +32,11 @@ export class LoginModalComponent {
   // async signInWithGoogle() {
   //   const credentials = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   //   // Handle the credentials
-  //   this.close();
+  //   this.closeModal();
+  // }
+
+  // closeModal(): void {
+  //   this.onClose.emit();
   // }
 
   // Call this method when the Google button is clicked
